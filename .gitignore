@@ -27,3 +27,4 @@ run_v2.log
 run_v2.log
 full_run.log
 full_run_v2.log
+!/post_hoc_stats.py
