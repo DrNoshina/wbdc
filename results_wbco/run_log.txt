@@ -1,0 +1,63 @@
+Device: NVIDIA RTX 4000 Ada Generation 
+Dataset: WBCO (699 samples, 9 features, 241 malignant) | MI k grid: [3, 5, 7, 9]
+Settings (Table 2): optimizer=adam lr=0.0001 batch=32 max_epochs=100 patience=10 dropout=0.3 heads=4 clip=1.0 wd=1e-05 latent=128 seed=42 | kNN tuned on validation | TabNet width tuning=off (128)
+Single split: train=489 val=105 test=105 (malignant in test=36)
+Selected k=9 MI features: Clump_Thickness, Uniformity_Cell_Size, Uniformity_Cell_Shape, Marginal_Adhesion, Single_Epithelial_Cell_Size, Bare_Nuclei, Bland_Chromatin, Normal_Nucleoli, Mitoses
+Single-split metrics written.
+Geometry written.
+Robustness written.
+Latency written.
+XAI written (Spearman SHAP vs LIME = 0.967).
+CV repeat 1/10 fold 1/5 done (1.1 min)
+CV repeat 1/10 fold 2/5 done (1.3 min)
+CV repeat 1/10 fold 3/5 done (1.5 min)
+CV repeat 1/10 fold 4/5 done (1.7 min)
+CV repeat 1/10 fold 5/5 done (1.9 min)
+CV repeat 2/10 fold 1/5 done (2.1 min)
+CV repeat 2/10 fold 2/5 done (2.3 min)
+CV repeat 2/10 fold 3/5 done (2.4 min)
+CV repeat 2/10 fold 4/5 done (2.6 min)
+CV repeat 2/10 fold 5/5 done (2.8 min)
+CV repeat 3/10 fold 1/5 done (2.9 min)
+CV repeat 3/10 fold 2/5 done (3.3 min)
+CV repeat 3/10 fold 3/5 done (3.4 min)
+CV repeat 3/10 fold 4/5 done (3.6 min)
+CV repeat 3/10 fold 5/5 done (3.8 min)
+CV repeat 4/10 fold 1/5 done (4.0 min)
+CV repeat 4/10 fold 2/5 done (4.2 min)
+CV repeat 4/10 fold 3/5 done (4.4 min)
+CV repeat 4/10 fold 4/5 done (4.5 min)
+CV repeat 4/10 fold 5/5 done (4.7 min)
+CV repeat 5/10 fold 1/5 done (4.9 min)
+CV repeat 5/10 fold 2/5 done (5.1 min)
+CV repeat 5/10 fold 3/5 done (5.3 min)
+CV repeat 5/10 fold 4/5 done (5.5 min)
+CV repeat 5/10 fold 5/5 done (5.7 min)
+CV repeat 6/10 fold 1/5 done (5.9 min)
+CV repeat 6/10 fold 2/5 done (6.2 min)
+CV repeat 6/10 fold 3/5 done (6.3 min)
+CV repeat 6/10 fold 4/5 done (6.5 min)
+CV repeat 6/10 fold 5/5 done (6.7 min)
+CV repeat 7/10 fold 1/5 done (6.9 min)
+CV repeat 7/10 fold 2/5 done (7.1 min)
+CV repeat 7/10 fold 3/5 done (7.4 min)
+CV repeat 7/10 fold 4/5 done (7.6 min)
+CV repeat 7/10 fold 5/5 done (7.7 min)
+CV repeat 8/10 fold 1/5 done (7.9 min)
+CV repeat 8/10 fold 2/5 done (8.1 min)
+CV repeat 8/10 fold 3/5 done (8.2 min)
+CV repeat 8/10 fold 4/5 done (8.4 min)
+CV repeat 8/10 fold 5/5 done (8.6 min)
+CV repeat 9/10 fold 1/5 done (8.8 min)
+CV repeat 9/10 fold 2/5 done (9.0 min)
+CV repeat 9/10 fold 3/5 done (9.3 min)
+CV repeat 9/10 fold 4/5 done (9.5 min)
+CV repeat 9/10 fold 5/5 done (9.7 min)
+CV repeat 10/10 fold 1/5 done (9.9 min)
+CV repeat 10/10 fold 2/5 done (10.2 min)
+CV repeat 10/10 fold 3/5 done (10.3 min)
+CV repeat 10/10 fold 4/5 done (10.4 min)
+CV repeat 10/10 fold 5/5 done (10.6 min)
+CV written.
+CV figures written.
+ALL DONE in 10.7 min. Results in: results_wbco/

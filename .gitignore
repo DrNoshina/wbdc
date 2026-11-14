@@ -1,0 +1,29 @@
+# Only the files below go to GitHub. Everything else in this folder (venv, zips,
+# old test runs, caches, downloads) is ignored automatically.
+/*
+!/.gitignore
+!/README.md
+!/requirements.txt
+!/LICENSE
+!/wdbc_rerun.py
+!/make_figures.py
+!/extra_experiments.py
+!/breast-cancer-wisconsin.data
+!/fonts/
+!/results_v3/
+!/results_wbco/
+!/figures_paper/
+!/*log*.txt
+!/*.log
+!/nohup.out
+
+# inside the kept folders: no caches or quick tests
+**/cv_cache/
+**/extra_quick/
+__pycache__/
+*.pyc
+*.zip
+run_v2.log
+run_v2.log
+full_run.log
+full_run_v2.log

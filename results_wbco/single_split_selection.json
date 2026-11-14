@@ -1,0 +1,42 @@
+{
+  "k": 9,
+  "features": [
+    "Clump_Thickness",
+    "Uniformity_Cell_Size",
+    "Uniformity_Cell_Shape",
+    "Marginal_Adhesion",
+    "Single_Epithelial_Cell_Size",
+    "Bare_Nuclei",
+    "Bland_Chromatin",
+    "Normal_Nucleoli",
+    "Mitoses"
+  ],
+  "early_stop_epoch": {
+    "FTTransformer": 7,
+    "DCNv2": 35,
+    "TabNet": 34,
+    "TabMLPMixer": 19
+  },
+  "tuned": {
+    "Raw+kNN": {
+      "k": 11,
+      "weights": "distance"
+    },
+    "FTTransformer+kNN": {
+      "k": 15,
+      "weights": "uniform"
+    },
+    "DCNv2+kNN": {
+      "k": 15,
+      "weights": "distance"
+    },
+    "TabNet+kNN": {
+      "k": 15,
+      "weights": "distance"
+    },
+    "TabMLPMixer+kNN": {
+      "k": 5,
+      "weights": "uniform"
+    }
+  }
+}
