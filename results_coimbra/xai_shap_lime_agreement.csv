@@ -1,0 +1,2 @@
+Model,Set,Spearman_global,p_global,Spearman_per_sample_mean,Spearman_per_sample_sd,Top5_Jaccard
+FTTransformer+XGBoost,test (n=17),0.9666666666666667,2.155031274835775e-05,0.7450980392156863,0.14904540540376382,1.0

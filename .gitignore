@@ -28,3 +28,7 @@ run_v2.log
 full_run.log
 full_run_v2.log
 !/post_hoc_stats.py
+!/more_experiments.py
+!/dataR2.csv
+!/results_coimbra/
+**/cache/

@@ -24,7 +24,7 @@ If it stops, run the same command again: finished CV folds are reloaded from <re
 import argparse, glob, json, os, sys, time, warnings
 
 p = argparse.ArgumentParser()
-p.add_argument("--dataset", default="wdbc", choices=["wdbc", "wbco"])
+p.add_argument("--dataset", default="wdbc", choices=["wdbc", "wbco", "coimbra"])
 p.add_argument("--res", default=None, help="main results folder of this dataset (default results/<dataset>)")
 p.add_argument("--steps", default="baselines,robust,stats,dca")
 p.add_argument("--no_tabpfn", action="store_true")

@@ -77,7 +77,7 @@ p.add_argument("--tabnet_grid", default="8,16,32,64", help="TabNet widths tried 
 p.add_argument("--tune_tabnet", action="store_true", help="tune TabNet width on validation (paper default: fixed 128)")
 p.add_argument("--no_tune", action="store_true", help="disable validation tuning (reproduces v1)")
 p.add_argument("--k_grid", default=None, help="MI feature counts tried on validation (default: 10,15,20,25,30 for WDBC; 3,5,7,9 for WBCO)")
-p.add_argument("--dataset", default="wdbc", choices=["wdbc", "wbco"], help="wdbc = Diagnostic (569x30); wbco = Original (699x9)")
+p.add_argument("--dataset", default="wdbc", choices=["wdbc", "wbco", "coimbra"], help="wdbc = Diagnostic (569x30); wbco = Original (699x9); coimbra = Breast Cancer Coimbra (116x9)")
 p.add_argument("--data_file", default=None, help="path to breast-cancer-wisconsin.data (WBCO); default: next to this script")
 p.add_argument("--robust_reps", type=int, default=100)
 p.add_argument("--sigmas", default="0,0.01,0.03,0.05,0.1,0.2,0.3,0.5,0.75,1.0")
@@ -128,10 +128,25 @@ if args.dataset == "wdbc":
     Y_ALL = (data.target == 0).astype(int)   # sklearn: 0 = malignant -> recode malignant = 1 (positive)
     FEATS = list(data.feature_names)
     DS_NAME = "WDBC"
+elif args.dataset == "coimbra":
+    # UCI Breast Cancer Coimbra (id 451): 116 women x 9 routine blood/anthropometric variables,
+    # Classification 1 = healthy control, 2 = breast cancer patient (positive). No missing values.
+    here = os.path.dirname(os.path.abspath(__file__))
+    fp = args.data_file or next((c for c in [os.path.join(here, "dataR2.csv"), os.path.join(here, "data", "dataR2.csv")]
+                                 if os.path.exists(c)), os.path.join(here, "dataR2.csv"))
+    df = pd.read_csv(fp)
+    assert len(df) == 116, f"expected 116 rows, got {len(df)}"
+    FEATS = [c for c in df.columns if c != "Classification"]
+    X_ALL = df[FEATS].to_numpy(dtype=np.float32)
+    Y_ALL = (df["Classification"] == 2).astype(int).to_numpy()
+    DS_NAME = "Coimbra"
 else:
     # UCI Breast Cancer Wisconsin (Original), id 15: 699 samples x 9 cytology features (1-10),
     # 16 missing Bare Nuclei values ('?') -> imputed with the TRAINING median inside every split.
-    fp = args.data_file or os.path.join(os.path.dirname(os.path.abspath(__file__)), "breast-cancer-wisconsin.data")
+    here = os.path.dirname(os.path.abspath(__file__))
+    fp = args.data_file or next((c for c in [os.path.join(here, "breast-cancer-wisconsin.data"),
+                                             os.path.join(here, "data", "breast-cancer-wisconsin.data")]
+                                 if os.path.exists(c)), os.path.join(here, "breast-cancer-wisconsin.data"))
     cols = ["id", "Clump_Thickness", "Uniformity_Cell_Size", "Uniformity_Cell_Shape", "Marginal_Adhesion",
             "Single_Epithelial_Cell_Size", "Bare_Nuclei", "Bland_Chromatin", "Normal_Nucleoli", "Mitoses", "Class"]
     df = pd.read_csv(fp, header=None, names=cols, na_values="?")

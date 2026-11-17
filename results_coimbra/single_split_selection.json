@@ -1,0 +1,42 @@
+{
+  "k": 9,
+  "features": [
+    "Age",
+    "BMI",
+    "Glucose",
+    "Insulin",
+    "HOMA",
+    "Leptin",
+    "Adiponectin",
+    "Resistin",
+    "MCP.1"
+  ],
+  "early_stop_epoch": {
+    "FTTransformer": 9,
+    "DCNv2": 69,
+    "TabNet": 25,
+    "TabMLPMixer": 9
+  },
+  "tuned": {
+    "Raw+kNN": {
+      "k": 3,
+      "weights": "distance"
+    },
+    "FTTransformer+kNN": {
+      "k": 7,
+      "weights": "uniform"
+    },
+    "DCNv2+kNN": {
+      "k": 15,
+      "weights": "distance"
+    },
+    "TabNet+kNN": {
+      "k": 5,
+      "weights": "distance"
+    },
+    "TabMLPMixer+kNN": {
+      "k": 9,
+      "weights": "uniform"
+    }
+  }
+}
